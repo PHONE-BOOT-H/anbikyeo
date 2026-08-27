@@ -4,6 +4,8 @@ import * as A from './audio.js';
 
 const rand = (a, b) => a + Math.random() * (b - a);
 const lerp = (a, b, k) => a + (b - a) * k;
+// 전정기관 배려: 흔들림만 끔 (슬로모·페이드는 유지)
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 export class Game {
   constructor(canvas, hooks) {
@@ -231,7 +233,7 @@ export class Game {
     const g = this.g;
     g.setTransform(1, 0, 0, 1, 0, 0);
     g.imageSmoothingEnabled = false;
-    if (this.shake > 0.3) g.translate(rand(-this.shake, this.shake), rand(-this.shake, this.shake));
+    if (this.shake > 0.3 && !REDUCED) g.translate(rand(-this.shake, this.shake), rand(-this.shake, this.shake));
 
     // 보도블럭
     g.fillStyle = '#a2a2aa'; g.fillRect(-16, -16, T.W + 32, T.H + 32);

@@ -27,8 +27,13 @@
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     gap: 12px; text-align: center;
     background: rgba(16,16,20,.6);
-    transition: opacity .18s;
+    transition: opacity .18s ease-out;
     padding: 16px 0; overflow-y: auto;
+  }
+  @keyframes grade-pop { from { transform: scale(.92); opacity: .4; } to { transform: scale(1); opacity: 1; } }
+  #result:not(.hide) #r-grade { animation: grade-pop .16s ease-out; }
+  @media (prefers-reduced-motion: reduce) {
+    #result:not(.hide) #r-grade { animation: none; }
   }
   .overlay.hide { opacity: 0; pointer-events: none; }
   h1 { color: #f2c94c; font-size: 44px; text-shadow: 3px 3px 0 #1c1c22; font-weight: normal; }
@@ -39,11 +44,12 @@
     background: #f2c94c; color: #1c1c22;
     border: 3px solid #1c1c22; box-shadow: 3px 3px 0 #1c1c22;
     padding: 10px 26px; cursor: pointer;
+    touch-action: manipulation;
   }
   button:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 #1c1c22; }
   button.ghost { background: #2a2a32; color: #c9c9d4; }
   #chips { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; max-width: 320px; }
-  .chip { font-size: 12px; padding: 6px 10px; background: #2a2a32; color: #c9c9d4; box-shadow: 2px 2px 0 #1c1c22; }
+  .chip { font-size: 12px; padding: 10px 12px; background: #2a2a32; color: #c9c9d4; box-shadow: 2px 2px 0 #1c1c22; }
   .chip.on { background: #3fae6b; color: #fff; }
   .chip.locked { opacity: .45; cursor: default; }
   #best, #r-unlock { color: #9a9aa8; font-size: 13px; min-height: 16px; }
@@ -53,7 +59,7 @@
   #r-detail { color: #9a9aa8; font-size: 13px; }
   .r-label { color: #c9c9d4; font-size: 16px; margin-bottom: -8px; }
   .row { display: flex; gap: 10px; }
-  #mute { position: absolute; top: 10px; right: 10px; font-size: 11px; padding: 6px 10px; z-index: 5; }
+  #mute { position: absolute; top: 8px; right: 8px; font-size: 11px; padding: 10px 12px; z-index: 5; }
 </style>
 </head>
 <body>
@@ -81,7 +87,7 @@
       <button id="again">한 판 더</button>
       <button id="share" class="ghost">카드 공유</button>
     </div>
-    <button id="to-title" class="ghost" style="font-size:12px; padding:6px 14px">그만 걷기</button>
+    <button id="to-title" class="ghost" style="font-size:12px; padding:9px 16px">그만 걷기</button>
   </div>
 </div>
 <script type="module" src="js/main.js"></script>
