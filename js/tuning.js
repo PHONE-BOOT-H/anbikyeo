@@ -24,7 +24,7 @@ export const T = {
   SHAKE_NEAR: 3.5,
   SHAKE_DEATH: 11,
 
-  SPAWN_START: 1.05,      // 스폰 간격(s) 시작
+  SPAWN_START: 0.82,      // 스폰 간격(s) 시작
   SPAWN_END: 0.34,        // 최종
   SPAWN_RAMP: 95,         // 이 시간(s)에 걸쳐 도달
   SPEED_RAMP_MAX: 0.85,   // 행인 속도 배수 최종 증가량

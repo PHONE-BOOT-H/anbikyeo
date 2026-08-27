@@ -22,6 +22,10 @@ export function renderCard(stats, equipped, chick) {
   v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,.5)');
   g.fillStyle = v; g.fillRect(0, 0, 1080, 1350);
 
+  // 텍스트 가독 패널
+  g.fillStyle = 'rgba(20,20,26,.62)';
+  g.fillRect(60, 850, 960, 400);
+
   g.textAlign = 'center';
   g.fillStyle = '#f2c94c';
   g.font = '86px Galmuri11, sans-serif';

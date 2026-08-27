@@ -47,7 +47,7 @@ export const pigeonFront = mk([
   '.....KLLLLK.....',
   '....KLBLLBLK....',
   '.....KLOOLK.....',
-  '....KGPGPGPK....',
+  '....KGGLLPPK....',
   '...KLLLLLLLLK...',
   '..KDLWWWWWWLDK..',
   '..KDLWWWWWWLDK..',
@@ -105,11 +105,11 @@ export const chickBack = [
 const E = '................';
 export const cosmetics = {
   sunglasses: {
-    front: mk([E, E, '...BBBBBBBBBB...', E, E, E, E, E, E, E, E, E, E, E, E, E]),
+    front: mk([E, E, '....BBBBBBBB....', E, E, E, E, E, E, E, E, E, E, E, E, E]),
     back:  mk([E, '....B......B....', E, E, E, E, E, E, E, E, E, E, E, E, E, E]),
   },
   chain: {
-    front: mk([E, E, E, E, E, '....Y..YY..Y....', '.......YY.......', E, E, E, E, E, E, E, E, E]),
+    front: mk([E, E, E, E, E, E, '....Y..YY..Y....', '.......YY.......', E, E, E, E, E, E, E, E]),
     back: null,
   },
   jacket: {

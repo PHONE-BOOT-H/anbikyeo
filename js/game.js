@@ -44,8 +44,14 @@ export class Game {
     this.comboT = 0; this.slowmoT = 0; this.crumbEaten = 0;
     this.px = T.W / 2; this.vx = 0; this.animT = 0;
     this.peds = []; this.crumbs = []; this.parts = []; this.pops = [];
-    this.spawnT = 0.8; this.crumbT = rand(...T.CRUMB_EVERY);
+    this.spawnT = 0.5; this.crumbT = rand(...T.CRUMB_EVERY);
     this.deathT = 0;
+    // 첫 화면 공백 방지 — 위쪽에 미리 행인 배치
+    for (let i = 0; i < 3; i++) {
+      this._spawnPed();
+      const p = this.peds[this.peds.length - 1];
+      p.y = -80 - i * 150; p.baseX = p.x = rand(40, T.W - 40);
+    }
     A.coo();
   }
 
