@@ -56,8 +56,11 @@ export function renderCard(stats, equipped, chick) {
   g.fillStyle = '#9a9aa8';
   g.font = '36px Galmuri11, sans-serif';
   g.fillText(`최고 콤보 x${stats.maxCombo} · 부스러기 ${stats.crumbs}개`, 540, 1210);
+  g.fillStyle = '#9a9aa8';
+  g.fillText('너는 몇 등급이냐', 540, 1275);
   g.fillStyle = '#6f6f77';
-  g.fillText('너는 몇 등급이냐', 540, 1290);
+  g.font = '30px Galmuri11, sans-serif';
+  g.fillText('phone-boot-h.github.io/anbikyeo', 540, 1322);
   return c;
 }
 
