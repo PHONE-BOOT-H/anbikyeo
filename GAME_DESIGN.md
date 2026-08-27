@@ -46,7 +46,7 @@
 
 ## 기술
 
-- Vite + vanilla JS + canvas. 서버 없음.
+- 무빌드 정적 vanilla JS + canvas. 서버 없음. 의존성 0 (픽셀 폰트 CDN 1개 예외).
 - 저장: localStorage (최고점, 누적 점수, 해금 상태).
 - 사운드: WebAudio 합성 (구구, 푸드덕, 니어미스 휙, 콤보 띠링).
 - 에셋: 코드 드로잉 (canvas 픽셀풍). 외부 에셋 없음.
