@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>안 비켜! — 비둘기는 비키지 않는다</title>
+<meta name="description" content="네가 비둘기다. 출근길 인파를 최대한 늦게 피할수록 점수. 배짱 몇 등급이냐.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    background: #101014;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Galmuri11', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    overflow: hidden;
+    -webkit-user-select: none; user-select: none;
+  }
+  #wrap { position: relative; }
+  #game {
+    width: 100%; height: 100%; display: block;
+    image-rendering: pixelated;
+    touch-action: none;
+  }
+  .overlay {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 14px; text-align: center;
+    background: rgba(16,16,20,.55);
+    transition: opacity .18s;
+  }
+  .overlay.hide { opacity: 0; pointer-events: none; }
+  h1 { color: #f2c94c; font-size: 44px; text-shadow: 3px 3px 0 #1c1c22; font-weight: normal; }
+  .tag { color: #c9c9d4; font-size: 14px; }
+  #preview { image-rendering: pixelated; }
+  button {
+    font-family: inherit; font-size: 16px;
+    background: #f2c94c; color: #1c1c22;
+    border: 3px solid #1c1c22; box-shadow: 3px 3px 0 #1c1c22;
+    padding: 10px 26px; cursor: pointer;
+  }
+  button:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 #1c1c22; }
+  button.ghost { background: #2a2a32; color: #c9c9d4; }
+  #chips { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; max-width: 320px; }
+  .chip { font-size: 12px; padding: 6px 10px; background: #2a2a32; color: #c9c9d4; box-shadow: 2px 2px 0 #1c1c22; }
+  .chip.on { background: #3fae6b; color: #fff; }
+  .chip.locked { opacity: .45; cursor: default; }
+  #best, #r-unlock { color: #9a9aa8; font-size: 13px; min-height: 16px; }
+  #r-unlock { color: #3fae6b; }
+  #r-grade { color: #f2c94c; font-size: 56px; text-shadow: 3px 3px 0 #1c1c22; }
+  #r-score { color: #fff; font-size: 26px; }
+  #r-detail { color: #9a9aa8; font-size: 13px; }
+  .r-label { color: #c9c9d4; font-size: 16px; margin-bottom: -8px; }
+  .row { display: flex; gap: 10px; }
+  #mute { position: absolute; top: 10px; right: 10px; font-size: 11px; padding: 6px 10px; z-index: 5; }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="game"></canvas>
+  <button id="mute" class="ghost">소리 끄기</button>
+
+  <div id="title" class="overlay">
+    <h1>안 비켜!</h1>
+    <div class="tag">비둘기는 비키지 않는다<br>인파를 아슬아슬하게, 최대한 늦게 피해라</div>
+    <canvas id="preview" width="128" height="128"></canvas>
+    <div id="chips"></div>
+    <button id="start">출근길 진입</button>
+    <div id="best"></div>
+    <div class="tag" style="font-size:11px; color:#6f6f77">드래그 또는 ←→ 로 이동 · 스치면 배짱 콤보</div>
+  </div>
+
+  <div id="result" class="overlay hide">
+    <div class="r-label">배짱</div>
+    <div id="r-grade">9등급</div>
+    <div id="r-score">0점</div>
+    <div id="r-detail"></div>
+    <div id="r-unlock"></div>
+    <div class="row">
+      <button id="again">한 판 더</button>
+      <button id="share" class="ghost">카드 공유</button>
+    </div>
+    <button id="to-title" class="ghost" style="font-size:12px; padding:6px 14px">그만 걷기</button>
+  </div>
+</div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
